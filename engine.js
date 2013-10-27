@@ -1,6 +1,7 @@
 
 // ================== CONSTANTS ====================
-const OPERATORS     = [ "+", "-", "*", "/", "%" ];
+
+const OPERATORS     = [ "*", "/", "%", "+", "-" ];
 const OPERANDS      = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
 const OPERATOR_PATT = /[\+\-\*\/]/g;
 const OPERAND_PATT  = /[0-9]+(?:[.][0-9]+){0,1}/g;
