@@ -29,12 +29,46 @@ function _getOperands(str)
     return __getCharacterGroup(OPERAND_PATT, str);
 }
 
-// ============= MAIN FUNCTION (evalvate) ===============
+function _parseNumber(numString)
+{
+  return numString.contains(".") ? parseFloat(numString) : parseInt(numString);
+}
+
+// ==== MAIN FUNCTION (evalvate) + auxiliary evalv.functions  ======
+
 function evalvate(str)
 { 
   str = _removeWhitespace(str);
   var operators = _getOperators(str);
   var operands  = _getOperands(str);
+}
+
+function _eval_pair(operator, operand1, operand2)
+{
+    var num1 = _parseNumber(operand1);
+    var num2 = _parseNumber(operand2);
+	       
+    var result;
+    switch(operator)
+    {
+      case "*":
+	result = num1 * num2;
+	break;
+      case "/":
+	result = num1 / num2;
+	break;
+      case "%":
+	result = num1 % num2;
+	break;
+      case "+":
+	result = num1 + num2;
+	break;
+      case "-":
+	result = num1 - num2;
+	break;
+    }
+    
+    return result;	       
 }
 
 // ================== TESTS ======================
