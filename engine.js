@@ -18,8 +18,24 @@ function _getFoundOperatorsList(str)
 
 // Main evalvating function
 function evalvate(str)
-{
-  _removeWhitespace(str); 
+{ 
+  _removeWhitespace(str);  
 }
 
 
+// ================== TESTS ======================
+function _removeWhitespace_test()
+{ 
+  alert(_removeWhitespace("j an    o") === "jano");
+  alert(_removeWhitespace("") === "");
+  alert(_removeWhitespace("  a ja a no  ") === "ajaano");
+  alert(_removeWhitespace("chnaa") === "chnaa");
+}
+
+function _getFoundOperatorsList_test(str)
+{
+  alert(_getFoundOperatorsList("jan+o-"));   
+  alert(_getFoundOperatorsList("ja"));
+  alert(_getFoundOperatorsList("jan+o*--"));
+  alert(_getFoundOperatorsList("+++"));
+}
