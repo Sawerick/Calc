@@ -1,6 +1,8 @@
 // ================== CONSTANTS ====================
-const OPERATORS = [ "+", "-", "*", "/" ];
-const OPERANDS = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
+const OPERATORS     = [ "+", "-", "*", "/" ];
+const OPERANDS      = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
+const OPERATOR_PATT = /[+-*/]/g;
+const OPERAND_PATT  = /[0-9]+(?:[.][0-9]+){,1}/g;
 
 // Our expression MUST BE without whitespace because of simplicity
 function _removeWhitespace(str)
@@ -8,23 +10,19 @@ function _removeWhitespace(str)
   return str.replace(/\s+/g, ""); 
 }
 
-function __getCharacterGroup(ALLOWABLE_LIST, str)
+function __getCharacterGroup(RGX_PATTERN, str)
 {
-   var found = [];
-   for ( index in str )
-     if ( ALLOWABLE_LIST.indexOf(str[index]) != -1 )
-       found.push( str[index] );
-   return found;
+   return str.match(RGX_PATTERN);
 }
 
 function _getOperators(str)
 {
-    return __getCharacterGroup(OPERATORS, str);
+    return __getCharacterGroup(OPERATOR_PATT, str);
 }
 
 function _getOperands(str)
 {
-    return __getCharacterGroup(OPERANDS, str);
+    return __getCharacterGroup(OPERAND_PATT, str);
 }
 
 // Main evalvating function
