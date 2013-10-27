@@ -43,7 +43,7 @@ function evalvate(str)
   var operands  = _getOperands(str);
 }
 
-function _eval_pair(operator, operand1, operand2)
+function _evalPair(operator, operand1, operand2)
 {
     var num1 = _parseNumber(operand1);
     var num2 = _parseNumber(operand2);
