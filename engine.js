@@ -1,8 +1,11 @@
+
 // ================== CONSTANTS ====================
 const OPERATORS     = [ "+", "-", "*", "/", "%" ];
 const OPERANDS      = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
 const OPERATOR_PATT = /[\+\-\*\/]/g;
 const OPERAND_PATT  = /[0-9]+(?:[.][0-9]+){0,1}/g;
+
+// ================== AUXILIARY FUNCTIONS ==============
 
 // Our expression MUST BE without whitespace because of simplicity
 function _removeWhitespace(str)
@@ -25,14 +28,13 @@ function _getOperands(str)
     return __getCharacterGroup(OPERAND_PATT, str);
 }
 
-// Main evalvating function
+// ============= MAIN FUNCTION (evalvate) ===============
 function evalvate(str)
 { 
   str = _removeWhitespace(str);
   var operators = _getOperators(str);
   var operands  = _getOperands(str);
 }
-
 
 // ================== TESTS ======================
 function _removeWhitespace_test()
