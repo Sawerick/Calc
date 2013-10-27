@@ -32,7 +32,7 @@ function _removeWhitespace_test()
   alert(_removeWhitespace("chnaa") === "chnaa");
 }
 
-function _getFoundOperatorsList_test(str)
+function _getFoundOperatorsList_test()
 {
   alert(_getFoundOperatorsList("jan+o-"));   
   alert(_getFoundOperatorsList("ja"));
