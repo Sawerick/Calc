@@ -101,5 +101,4 @@ function _evalPair_test()
   alert(_evalPair("+", "8", "4"));
   alert(_evalPair("*", "52.4", "3"));
   alert(_evalPair("/", "8.369", "41"));
-  alert(_evalPair("%", "2", "3"));
 }
