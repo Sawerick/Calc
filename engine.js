@@ -34,6 +34,14 @@ function _parseNumber(numString)
   return numString.contains(".") ? parseFloat(numString) : parseInt(numString);
 }
 
+function _replaceFirst(str, former, next)
+{
+	var formerStartIndex = str.indexOf(former);
+	if (formerStartIndex === -1) return str;
+	var formerEndIndex = formerStartIndex + former.length;
+	return str.substring(0, formerStartIndex) + next + str.substring(formerEndIndex);
+}
+
 // ==== MAIN FUNCTION (evalvate) + auxiliary evalv.functions  ======
 
 function evalvate(str)
@@ -41,6 +49,15 @@ function evalvate(str)
   str = _removeWhitespace(str);
   var operators = _getOperators(str);
   var operands  = _getOperands(str);
+  
+  for (opIndex in OPERATORS)
+  {
+		for (foundOpIndex in operators)
+		{
+			var result = _evalPair(operators[foundOpIndex],
+							 operands[foundOpIndex], operands[foundOpIndex + 1]);					
+		}  
+  }
 }
 
 function _evalPair(operator, operand1, operand2)
@@ -102,4 +119,12 @@ function _evalPair_test()
   alert(_evalPair("*", "52.4", "3"));
   alert(_evalPair("/", "8.369", "41"));
   alert(_evalPair("%", "2", "3"));
+}
+
+function _replaceFirst_test()
+{
+	alert(_replaceFirst("sanotacianoa", "ano", "zum"));
+	alert(_replaceFirst("cna", "ano", "zum"));
+	alert(_replaceFirst("jjjjj", "j", "k"));
+	alert(_replaceFirst("chnao", "ch", ""));	
 }
